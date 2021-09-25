@@ -16,7 +16,7 @@ def evaluate():
     logging.info("data sent for evaluation {}".format(data))
     # get the battleId
     battleId = data["battleId"]
-    print("battleId: {}".format(battleId))
+    logging.info(battleId)
     code = {
         "NW": 0, "N": 1, "NE": 2,
         "W" : 3, "C": 4, "E" : 5,
@@ -28,7 +28,7 @@ def evaluate():
     game_end = False
     s = requests.Session()
     res = s.get(ARENA_END_POINT + "/tic-tac-toe/start/" + battleId)
-    
+    logging.info(res.json()["id"])
     # initial event
         # "O" goes first
     if res.json()["youAre"] == "O":
