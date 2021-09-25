@@ -16,7 +16,7 @@ def evaluate():
     logging.info("data sent for evaluation {}".format(data))
     # get the battleId
     battleId = data["battleId"]
-    logging.info("data" + str(data)+ " battleId"+ str(battleId))
+    logging.debug("data" + str(data)+ " battleId"+ str(battleId))
     code = {
         "NW": 0, "N": 1, "NE": 2,
         "W" : 3, "C": 4, "E" : 5,
@@ -28,7 +28,8 @@ def evaluate():
     game_end = False
     s = requests.Session()
     res = s.get(ARENA_END_POINT + "/tic-tac-toe/start/" + battleId)
-    logging.info(res.json()["id"])
+    logging.debug(res.json()["id"])
+    id = res.json()["id"]
     # initial event
         # "O" goes first
     if res.json()["youAre"] == "O":
@@ -37,7 +38,7 @@ def evaluate():
         first = False
     
     if not first:
-        res = s.get(ARENA_END_POINT + "/tic-tac-toe/start/" + battleId).json()
+        res = s.get(ARENA_END_POINT + "/tic-tac-toe/start/" + id).json()
         board[code[res["position"]]] = 1 if first else 2
 
     while game_end != True:
