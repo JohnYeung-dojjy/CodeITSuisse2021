@@ -16,7 +16,7 @@ def evaluate():
     logging.info("data sent for evaluation {}".format(data))
     # get the battleId
     battleId = data["battleId"]
-    logging.info(battleId)
+    logging.info("data" + str(data)+ " battleId"+ str(battleId))
     code = {
         "NW": 0, "N": 1, "NE": 2,
         "W" : 3, "C": 4, "E" : 5,
