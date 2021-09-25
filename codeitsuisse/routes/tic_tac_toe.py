@@ -15,8 +15,8 @@ def evaluate():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     # get the battleId
-    battleId = data.get("battleId")
-    
+    battleId = data["battleId"]
+    print("battleId: {}".format(battleId))
     code = {
         "NW": 0, "N": 1, "NE": 2,
         "W" : 3, "C": 4, "E" : 5,
