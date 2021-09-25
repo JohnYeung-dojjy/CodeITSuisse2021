@@ -37,7 +37,7 @@ def evaluate():
         first = False
     
     if not first:
-        res = s.get(ARENA_END_POINT + "/tic-tac-toe/play/" + battleId).json()
+        res = s.get(ARENA_END_POINT + "/tic-tac-toe/start/" + battleId).json()
         board[code[res["position"]]] = 1 if first else 2
 
     while game_end != True:
